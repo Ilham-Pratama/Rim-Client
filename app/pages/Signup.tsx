@@ -6,7 +6,7 @@ import { AttachTitle, ErrorMessage } from './utils';
 import { StyledTextField, StyledButton } from './Landing';
 import { SIGN_UP } from '../queries';
 import { useMutation } from '@apollo/react-hooks';
-import { signup, main } from '../urls';
+import { main } from '../urls';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     background: theme.palette.secondary.light,
     height: '100%',
+    [theme.breakpoints.down(1300)]: {
+      height: '130%',
+    },
   },
   paper: {
     width: 500,
@@ -35,12 +38,12 @@ const useStyles = makeStyles((theme) => ({
   },
   label: {
     fontWeight: 300,
-    marginTop: 0,
+    marginTop: theme.spacing(2),
     [theme.breakpoints.down(600)]: {
       fontSize: '2.3em',
     },
-    [theme.breakpoints.up(1000)]: {
-      marginTop: theme.spacing(4),
+    [theme.breakpoints.down(1000)]: {
+      marginTop: theme.spacing(1),
     },
   },
 }));

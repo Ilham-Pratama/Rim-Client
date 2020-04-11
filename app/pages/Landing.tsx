@@ -14,9 +14,7 @@ import { Button } from '@material-ui/core';
 import { useMutation } from '@apollo/react-hooks';
 import { SIGN_IN } from '../queries';
 import { AttachTitle, ErrorMessage } from './utils';
-import { main } from '../urls';
-
-export const mainIcon = '"http://localhost:5000/assets/logo.png"';
+import { main, logo } from '../urls';
 
 export const StyledTextField = withStyles((theme) => ({
   root: {
@@ -92,9 +90,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.palette.primary.main,
-    backgroundPosition: 'left',
-    backgroundSize: 'cover',
+    backgroundImage: `linear-gradient(to left, ${theme.palette.primary.dark}, ${theme.palette.primary.light})`,
     [theme.breakpoints.down(500)]: {
       paddingRight: 10,
     },
@@ -183,7 +179,7 @@ const Landing = () => {
     <div className={classes.root}>
       <AttachTitle msg={'Welcome to Rim!'} />
       <div className={classes.banner}>
-        <img className={classes.logo} src={mainIcon} alt="not found" />
+        <img className={classes.logo} src={logo} alt="not found" />
         <Typography variant="h2" className={classes.mainLabel}>
           Share with Rim!
         </Typography>
